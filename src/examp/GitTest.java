@@ -1,0 +1,10 @@
+package examp;
+
+public class GitTest {
+
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		//为什么两台电脑都提交了代码，但是并没有整合到一起？
+	}
+
+}
