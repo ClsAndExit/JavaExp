@@ -48,13 +48,13 @@ public class test6 {
 				i++;
 			}
 		} else if (choice < 0) {
-			while (a < 0) {
+			while (a > 0) {
 				arry[i] = a;
 				a = scan.nextInt();
 				i++;
 			}
 		}
-		scan.close();
+		//scan.close();
 		return arry;
 	}
 
@@ -65,7 +65,7 @@ public class test6 {
 				length++;
 			}
 		} else if (choice < 0) {
-			while (arry[length] < 0) {
+			while (arry[length] != 0) {
 				length++;
 			}
 		}
