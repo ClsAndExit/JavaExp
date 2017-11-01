@@ -1,5 +1,5 @@
 package org.zm.model;
-
+//
 public class CC {
 	public static void main(String[] args) {
 		int[] m = new int[5]; // 接受用户随机输入的5个整数
