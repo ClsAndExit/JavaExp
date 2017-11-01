@@ -10,5 +10,4 @@ public class GitTest {
 		//123456
 		//222
 	}
-
 }
