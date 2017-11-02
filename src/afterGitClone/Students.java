@@ -1,4 +1,4 @@
-package org.zm.model;
+package afterGitClone;
 import java.util.Scanner;
 public class Students {
 	public static String stuNum;

@@ -1,4 +1,4 @@
-package org.zm.model;
+package afterGitClone;
 //
 public class CC {
 	public static void main(String[] args) {
