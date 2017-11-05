@@ -1,4 +1,4 @@
-package examp;
+package InternetProgramDesigne;
 
 import java.io.*;
 import java.util.Scanner;

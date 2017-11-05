@@ -1,4 +1,4 @@
-package examp;
+package javaExamp;
 
 import java.util.Scanner;
 

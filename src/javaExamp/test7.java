@@ -1,4 +1,4 @@
-package examp;
+package javaExamp;
 
 public class test7 {
 

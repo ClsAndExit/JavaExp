@@ -1,4 +1,4 @@
-package afterGitClone;
+package javaExamp;
 
 import java.util.Scanner;
 
