@@ -48,6 +48,25 @@ public class TestClass8 {
 	}
 
 	public static void shuffle(int[][] m) {
-		 //
+		System.out.println("原数组：");
+		for (int i=0;i<5;i++) {
+			for (int j=0;j<2;j++) {
+				System.out.print(m[i][j]+",");
+			}
+		}
+		System.out.println();
+		int [][] temp = new int[1][];
+		for(int i=0;i<5;i++) {
+			int index=(int)(Math.random()*5);
+			temp[0]=m[i];
+			m[i]=m[index];
+			m[index]=temp[0];
+		}
+		System.out.println("乱序数组：");
+		for (int i=0;i<5;i++) {
+			for (int j=0;j<2;j++) {
+				System.out.print(m[i][j]+",");
+			}
+		}
 	}
 }
