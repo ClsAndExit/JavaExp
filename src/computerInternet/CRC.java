@@ -1,5 +1,5 @@
 package computerInternet;
-
+//
 public class CRC {
 	   static final String HEXES = "0123456789ABCDEF";  
 	    byte uchCRCHi = (byte) 0xFF;  
@@ -186,7 +186,7 @@ public class CRC {
 	            for ( final byte b : raw ) {  
 	              hex.append(HEXES.charAt((b & 0xF0) >> 4))  
 	                 .append(HEXES.charAt((b & 0x0F)));  
-	            }   
+	            }  
 	            return hex.toString();  
 	    }  
 	  
