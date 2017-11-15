@@ -1,4 +1,5 @@
 package InternetProgramDesigne;
+
 import java.io.File;
 /**
  * 在文件里面保存学生信息
@@ -14,52 +15,43 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+public class CRUDFromFile {// 所有对数据的修改操作都在List里面完成，此类只提供文件读取和写入的功能
+	static List<Student> student1 = new ArrayList<Student>();
+	// 找到目标文件
+	public static File file = new File("D:\\test.txt");
 
-public class CRUDFromFile {
-	
-	 //找到目标文件  
-    public static File file = new File("D:\\test.txt");  
-    //建立数据的输入通道  
-	 static void InputTheFile(List<Student> mylis) throws IOException{
-			//建立文件与数据的关系   并且将其序列化
-	    	FileOutputStream fos = new FileOutputStream(file);
-	    	ObjectOutputStream oos = new ObjectOutputStream(fos);
-	    	
-	    	oos.writeObject(mylis);
-	    	System.out.println("信息成功地写入了文件中！");
-	    	oos.close();
-	    	fos.close();
-	    	
-		}
-	    
-	    static List<Student> OutputTheFile() throws IOException, ClassNotFoundException
-	    {
-	    	FileOutputStream fos = new FileOutputStream(file);
-	    	ObjectOutputStream oos = new ObjectOutputStream(fos);
-	    	List<Student> mylis = new ArrayList();
-//	    	MyClass MC = new MyClass();
-	    	try{
-	    		while(true){
-	        		
-	    			Student MC = (Student)((ObjectInput) oos).readObject();
-	                mylis.add(MC);
-	       	    }
-	    	   }catch(Exception e){
-	    		   
-	    	   }
-	    	   finally{
-	    		   oos.close();
-	           	   fos.close();
-	    	   }
-	    	   System.out.println("文件读取成功！");
-	       	   return mylis;
-	    }
-	
-	List<Student> student = new ArrayList<Student>();
-
-	public List<Student> returnList(){
-		return student;
+	public List<Student> returnList1() throws ClassNotFoundException, IOException {
+		OutputTheFile();
+		return student1;
 	}
+
+	// 建立数据的输入通道
+	static void InputTheFile() throws IOException {
+		// 建立文件与数据的关系 并且将其序列化
+		FileOutputStream fos = new FileOutputStream(file,false);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(student1);
+		System.out.println("信息成功地写入了文件中！");
+		oos.close();
+		fos.close();
+	}
+
+	// 只在程序开始的时候调用，用来展示文件里面原有的信息
+	static void OutputTheFile() throws IOException, ClassNotFoundException {
+		FileInputStream fis = new FileInputStream(file);
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		try {
+			while (true) {
+				student1 = (List<Student>) ois.readObject();
+			}
+		} catch (Exception e) {
+		} finally {
+			ois.close();
+			fis.close();
+		}
+		System.out.println("文件读取成功！");
+	}
+
 	/**
 	 * 向List集合里面添加一个学生的信息
 	 * 
@@ -68,9 +60,9 @@ public class CRUDFromFile {
 	 */
 	public boolean addStu(Student stu) {
 		boolean result = false;
-		if (student.add(stu)) {
+		if (student1.add(stu)) {
 			try {
-				InputTheFile(student);
+				InputTheFile();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -81,26 +73,13 @@ public class CRUDFromFile {
 	}
 
 	/**
-	 * 添加学生到指定位置
-	 * 
-	 * @param index
-	 * @param stu
-	 * @return
-	 */
-	public boolean addStu(int index, Student stu) {
-		boolean result = false;
-		student.add(index, stu);
-		return result;
-	}
-
-	/**
 	 * 根据学号查找学生
 	 * 
 	 * @param stu
 	 * @return
 	 */
 	public Student searchStu(String stu) {
-		for (Student who : student) {
+		for (Student who : student1) {
 			if (who.getStu_code().equals(stu)) {
 				return who;
 			}
@@ -116,12 +95,12 @@ public class CRUDFromFile {
 	 */
 	public boolean updateStu(Student stu) {
 		boolean result = false;
-		for (Student who : student) {
+		for (Student who : student1) {
 			if (who.getStu_code().equals(stu.getStu_code())) {
 				who.setStu_name(stu.getStu_name());
 				who.setStu_age(stu.getStu_age());
 				who.setStu_gender(stu.getStu_gender());
-				result=true;
+				result = true;
 			}
 		}
 		return result;
@@ -135,10 +114,10 @@ public class CRUDFromFile {
 	 */
 	public boolean deleteStu(String stu) {
 		boolean result = false;
-		for (int i = 0, len = student.size(); i < len; ++i) {
-			if (student.get(i).getStu_code().equals(stu)) {
-				if (student.remove(i)!=null) {
-					result=true;
+		for (int i = 0, len = student1.size(); i < len; ++i) {
+			if (student1.get(i).getStu_code().equals(stu)) {
+				if (student1.remove(i) != null) {
+					result = true;
 				}
 				--len;// 减少一个
 				--i;

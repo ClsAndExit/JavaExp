@@ -1,6 +1,6 @@
 package InternetProgramDesigne;
 
-public class Student {
+public class Student  implements java.io.Serializable{
 	private String stu_name;
 	private String stu_code;
 	private int stu_age;
