@@ -17,7 +17,7 @@ import java.util.List;
 public class CRUDFromFile {// 所有对数据的修改操作都在List里面完成，此类只提供文件读取和写入的功能
 	static List<Student> student1 = new ArrayList<Student>();
 	// 找到目标文件
-	public static File file = new File("D:\\tets.txt");
+	public static File file = new File("D:\\test.txt");
 
 	public List<Student> returnList1() throws ClassNotFoundException,
 			IOException {
