@@ -34,7 +34,16 @@ public class ServerSockket {
             socket = client;    
             new Thread(this).start();    
         }    
-    
+        
+        @SuppressWarnings("unused")
+		public void sudo(String clientInputStr) {
+        	 String [] arr = clientInputStr.split("\\s+");
+             for(String ss : arr){
+                 System.out.println(ss);
+             }
+             
+        }
+        
         public void run() {    
             try {    
                 // 读取客户端数据    
@@ -42,7 +51,11 @@ public class ServerSockket {
                 String clientInputStr = input.readUTF();//这里要注意和客户端输出流的写方法对应,否则会抛 EOFException  
                 // 处理客户端数据    
                 System.out.println("客户端发过来的内容:" + clientInputStr);    
-    
+                
+                sudo(clientInputStr);
+                
+                
+                
                 // 向客户端回复信息    
                 DataOutputStream out = new DataOutputStream(socket.getOutputStream());    
                 System.out.print("请输入:\t");    
