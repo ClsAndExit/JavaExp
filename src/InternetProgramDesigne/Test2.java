@@ -11,12 +11,12 @@ public class Test2 {
 	 */
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		// TODO Auto-generated method stub
-		// CRUDController con = new CRUDController();
+		 CRUDController con = new CRUDController();
 
-		CRUDFromFile con = new CRUDFromFile();
+		//CRUDFromFile con = new CRUDFromFile();
 
 		System.out.println("學生信息列表：");
-		for (Student student : con.returnList1()) {
+		for (Student student : con.returnList()) {
 			printStudent(student);
 		}
 
@@ -25,7 +25,7 @@ public class Test2 {
 			System.out.println("添加成功");
 			// printStudent(s);
 		}
-		for (Student student : con.returnList1()) {
+		for (Student student : con.returnList()) {
 			printStudent(student);
 		}
 		System.out.println("输入学生的学号查询学生信息：");
