@@ -15,6 +15,6 @@ package javaExamp;
 	显示它的面积和周长，然后显示r1.contains(3,3)、r1.contains(new MyRectangle2D(4, 5, 10.5, 3.2))
 	和r1.overlaps(new MyRectangle2D(3, 5, 2.3, 5.4))的结果。
 */
-public class Test12 {
+public class Test12 { 
 
 }

@@ -70,7 +70,7 @@ public class MyString1 {
 		int value=i;
 		for (j = 0; i > 0; j++) {
 			i = i / 10;
-		}
+		} 
 		char[] string = new char[j];
 		for (int m = j - 1; value > 0; m--) {
 			// chat(int) 会自动的把int类型的数据转化为ASCII码表示，所以要加上ASCII码中表示数字“０”的位数
