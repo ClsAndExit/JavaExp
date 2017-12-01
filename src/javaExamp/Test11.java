@@ -19,7 +19,7 @@ public class Test11 {
 		int value = binaryToDecimal("1001");
 		System.out.println("二进制字符串\"1111\"对应的十进制数为：" + value);
 		System.out.println("第二题：");
-		exercise("", "D:\\test.txt");
+		exercise("1", "D:\\test.txt");
 	}
 
 	public static int binaryToDecimal(String binaryString) {
@@ -40,21 +40,27 @@ public class Test11 {
 	@SuppressWarnings("resource")
 	public static void exercise(String str, String pathname) {
 		try {
-			//读取
+			// 读取
 			File filename = new File(pathname); // 要读取以上路径的input。txt文件
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(filename)); // 建立一个输入流对象reader
 			BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言
-			String line = "";
-			line = br.readLine();
-			while (line == null) {
-				line = line + br.readLine(); // 一次读入一行数据
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			// line = br.readLine();
+			while (true) {
+				line = br.readLine(); // 一次读入一行数据
+				if (line == null) {
+					break;
+				}
+				sb.append(line.trim());
+				sb.append("\r\n");// 加上换行之后保持源文件里面的文件段落不会发生改变
 			}
-			
-			//处理数据
-			line = line + "处理之后的字符串";
-			//写入
+			// 处理数据
+			line = sb.toString();
+			line = line.replace(str, "");
+			// 写入
 			File writename = new File(pathname);
-			//writename.createNewFile(); // 创建新文件 或者在写入数据之前把文件里面原有的数据清除 
+			writename.createNewFile(); // 创建新文件 或者在写入数据之前把文件里面原有的数据清除
 			BufferedWriter out = new BufferedWriter(new FileWriter(writename));
 			out.write(line); //
 			out.flush(); // 把缓存区内容压入文件
@@ -63,6 +69,7 @@ public class Test11 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("文件处理完成！");
 	}
 
 }
