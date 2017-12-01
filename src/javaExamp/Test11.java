@@ -47,7 +47,7 @@ public class Test11 {
 			String line = null;
 			StringBuilder sb = new StringBuilder();
 			// line = br.readLine();
-			while (true) {
+			while (true) { 
 				line = br.readLine(); // 一次读入一行数据
 				if (line == null) {
 					break;
