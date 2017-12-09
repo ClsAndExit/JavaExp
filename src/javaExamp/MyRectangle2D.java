@@ -1,7 +1,5 @@
 package javaExamp;
 
-import java.lang.reflect.Array;
-
 /**
  * 几何问题 定义MyRectangle2D类，包含： 
  * 两个名为x和y的double型属性，表明矩形的中心点，这两个数据域都带有get和set方法（假设这个矩形的边与x轴和y轴平行）。 
@@ -86,11 +84,11 @@ public class MyRectangle2D {
 		double down;// 下
 		double left;// 左
 		double right;// 右
-		top = this.x + (this.height / 2);
-		down = this.x - (this.height / 2);
-		left = this.y - (this.width / 2);
-		right = this.y + (this.width / 2);
-		if (x >= left && x <= right && y > down && y <= top) {
+		top = this.y + (this.height / 2);
+		down = this.y - (this.height / 2);
+		left = this.x - (this.width / 2);
+		right = this.x + (this.width / 2);
+		if (x >= left && x <= right && y >= down && y <= top) {
 			flag = true;
 		}
 		return flag;
@@ -99,15 +97,15 @@ public class MyRectangle2D {
 	// 计算矩形各个顶点的坐标
 	public double[] vertex(MyRectangle2D r) {
 		double[] v = new double[8];
-		// 一次按照左上、右上、右下、左下的顺序顺序存储X，Y的坐标值
+		// 依次按照左上、右上、右下、左下的顺序顺序存储X，Y的坐标值
 		double top;// 上
 		double down;// 下
 		double left;// 左
 		double right;// 右
-		top = r.x + (r.height / 2);
-		down = r.x - (r.height / 2);
-		left = r.y - (r.width / 2);
-		right = r.y + (r.width / 2);
+		top = r.y + (r.height / 2);
+		down = r.y - (r.height / 2);
+		left = r.x - (r.width / 2);
+		right = r.x + (r.width / 2);
 
 		v[0] = left;
 		v[1] = top;
