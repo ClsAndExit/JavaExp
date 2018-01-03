@@ -1,11 +1,11 @@
 /**
-1.	¶ş½øÖÆ×ª»»ÎªÊ®½øÖÆ
-±àĞ´Ò»¸ö·½·¨£¬½«Ò»¸ö¶ş½øÖÆÊı×Ö×÷ÎªÒ»¸ö×Ö·û´®×ª»»ÎªÒ»¸öÊ®½øÖÆÕûÊı¡£Õâ¸ö·½·¨Í·ÈçÏÂËùÊ¾£º
+1.	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ÎªÊ®ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ğ´Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÒ»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½ÎªÒ»ï¿½ï¿½Ê®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
 public static int binaryToDecimal(String binaryString)
-2.	É¾³ıÎÄ±¾
-±àĞ´Ò»¸ö³ÌĞò£¬´ÓÒ»¸öÎÄ±¾ÎÄ¼şÖĞÉ¾³ıµôËùÓĞ³öÏÖÄ³¸öÖ¸¶¨×Ö·û´®µÄµØ·½¡£ÀıÈçµ÷ÓÃ
+2.	É¾ï¿½ï¿½ï¿½Ä±ï¿½
+ï¿½ï¿½Ğ´Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ò£¬´ï¿½Ò»ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ³ï¿½ï¿½ï¿½Ä³ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ÄµØ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 java Exercise9 John filename
-Ôò´ÓÖ¸¶¨ÎÄ¼şÖĞÉ¾³ıµô×Ö·û´®John¡£
+ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Johnï¿½ï¿½
 
  */
 package javaExamp;
@@ -15,11 +15,11 @@ import java.io.*;
 public class Test11 {
 
 	public static void main(String[] args) {
-		System.out.println("µÚÒ»Ìâ£º");
-		int value = binaryToDecimal("1001");
-		System.out.println("¶ş½øÖÆ×Ö·û´®\"1111\"¶ÔÓ¦µÄÊ®½øÖÆÊıÎª£º" + value);
-		System.out.println("µÚ¶şÌâ£º");
-		exercise("1", "D:\\test.txt");
+//		System.out.println("ï¿½ï¿½Ò»ï¿½â£º");
+//		int value = binaryToDecimal("1001");
+//		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½\"1111\"ï¿½ï¿½Ó¦ï¿½ï¿½Ê®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½" + value);
+//		System.out.println("ï¿½Ú¶ï¿½ï¿½â£º");
+		exercise(".", "D:\\test.txt");
 	}
 
 	public static int binaryToDecimal(String binaryString) {
@@ -40,36 +40,36 @@ public class Test11 {
 	@SuppressWarnings("resource")
 	public static void exercise(String str, String pathname) {
 		try {
-			// ¶ÁÈ¡
-			File filename = new File(pathname); // Òª¶ÁÈ¡ÒÔÉÏÂ·¾¶µÄinput¡£txtÎÄ¼ş
-			InputStreamReader reader = new InputStreamReader(new FileInputStream(filename)); // ½¨Á¢Ò»¸öÊäÈëÁ÷¶ÔÏóreader
-			BufferedReader br = new BufferedReader(reader); // ½¨Á¢Ò»¸ö¶ÔÏó£¬Ëü°ÑÎÄ¼şÄÚÈİ×ª³É¼ÆËã»úÄÜ¶Á¶®µÄÓïÑÔ
+			// ï¿½ï¿½È¡
+			File filename = new File(pathname); // Òªï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½inputï¿½ï¿½txtï¿½Ä¼ï¿½
+			InputStreamReader reader = new InputStreamReader(new FileInputStream(filename)); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½reader
+			BufferedReader br = new BufferedReader(reader); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½É¼ï¿½ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			String line = null;
 			StringBuilder sb = new StringBuilder();
 			// line = br.readLine();
 			while (true) { 
-				line = br.readLine(); // Ò»´Î¶ÁÈëÒ»ĞĞÊı¾İ
+				line = br.readLine(); // Ò»ï¿½Î¶ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if (line == null) {
 					break;
 				}
 				sb.append(line.trim());
-				sb.append("\r\n");// ¼ÓÉÏ»»ĞĞÖ®ºó±£³ÖÔ´ÎÄ¼şÀïÃæµÄÎÄ¼ş¶ÎÂä²»»á·¢Éú¸Ä±ä
+				sb.append("\r\n");// ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½Ö®ï¿½ó±£³ï¿½Ô´ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ä²»ï¿½á·¢ï¿½ï¿½ï¿½Ä±ï¿½
 			}
-			// ´¦ÀíÊı¾İ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			line = sb.toString();
-			line = line.replace(str, "");
-			// Ğ´Èë
+			line = line.replace(str, "\r\n");
+			// Ğ´ï¿½ï¿½
 			File writename = new File(pathname);
-			writename.createNewFile(); // ´´½¨ĞÂÎÄ¼ş »òÕßÔÚĞ´ÈëÊı¾İÖ®Ç°°ÑÎÄ¼şÀïÃæÔ­ÓĞµÄÊı¾İÇå³ı
+			writename.createNewFile(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			BufferedWriter out = new BufferedWriter(new FileWriter(writename));
 			out.write(line); //
-			out.flush(); // °Ñ»º´æÇøÄÚÈİÑ¹ÈëÎÄ¼ş
-			out.close(); // ×îºó¼ÇµÃ¹Ø±ÕÎÄ¼ş
+			out.flush(); // ï¿½Ñ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½Ä¼ï¿½
+			out.close(); // ï¿½ï¿½ï¿½ÇµÃ¹Ø±ï¿½ï¿½Ä¼ï¿½
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("ÎÄ¼ş´¦ÀíÍê³É£¡");
+		System.out.println("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½");
 	}
 
 }
