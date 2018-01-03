@@ -1,5 +1,5 @@
-package webChat;
-import webChat.*;
+package myclass;
+import myclass.*;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
@@ -507,7 +507,7 @@ class clientChat extends JFrame{
         	userExit(string1,string2);
     	}
 	}
-	//＊＊＊＊＊＊＊＊＊＊＊＊退出处理＊＊＊＊＊＊＊＊＊�
+	//＊＊＊＊＊＊＊＊＊＊＊＊退出处理＊＊＊＊＊＊＊＊＊?
 	public void userExit(String str1,String str2){			
 		ValidateMessage exObj = new ValidateMessage();
 		exObj.validateName = userName;

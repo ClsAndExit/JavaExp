@@ -1,12 +1,12 @@
-package webChat;
-import webChat.*;
+package myclass;
+import myclass.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
 import java.net.*;
-//**********************************¸ÃÀàÊµÏÖÓÃ»§×¢²á***************************************
+//**********************************è¯¥ç±»å®ç°ç”¨æˆ·æ³¨å†Œ***************************************
 public class clientRegister extends JFrame implements ActionListener{
 	
 	JPanel panelObj;
@@ -33,14 +33,14 @@ public class clientRegister extends JFrame implements ActionListener{
 	JLabel imagePos;
 
 	RegisterMessage uobj;	
-	//******************************** ÉèÖÃÓÃ»§×¢²á´°¿Ú************************************
+	//******************************** è®¾ç½®ç”¨æˆ·æ³¨å†Œçª—å£************************************
 	public clientRegister()
 	{
-		this.setTitle(" ÓÃ»§×¢²á");
+		this.setTitle(" ç”¨æˆ·æ³¨å†Œ");
      	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      	setSize(530,300);
      	Dimension us = this.getSize();
-   		//»ñÈ¡ÆÁÄ»µÄ³ß´ç
+   		//è·å–å±å¹•çš„å°ºå¯¸
 		Dimension them = Toolkit.getDefaultToolkit().getScreenSize();
 		int newX = (them.width - us.width) / 2 ;
 		int newY = (them.height - us.height) / 2 ;		
@@ -48,18 +48,18 @@ public class clientRegister extends JFrame implements ActionListener{
 		
 		panelObj = new JPanel();
 	    getContentPane().add(panelObj);
-		panelObj.setLayout(null);    //ÉèÖÃ¿ò¼Ü´°¿ÚµÄ²¼¾Ö¹ÜÀíÆ÷Îªnull²¼¾Ö¹ÜÀíÆ÷
+		panelObj.setLayout(null);    //è®¾ç½®æ¡†æ¶çª—å£çš„å¸ƒå±€ç®¡ç†å™¨ä¸ºnullå¸ƒå±€ç®¡ç†å™¨
 		
-		//³õÊ¼»¯¸÷¸ö×é¼ş
+		//åˆå§‹åŒ–å„ä¸ªç»„ä»¶
 		bg = new ButtonGroup();
-		Font f = new Font("ËÎÌå",Font.PLAIN,12);
-		labelName = new JLabel("ÓÃ»§Ãû£º");
+		Font f = new Font("å®‹ä½“",Font.PLAIN,12);
+		labelName = new JLabel("ç”¨æˆ·åï¼š");
 		labelName.setFont(f);
-		labelName1 = new JLabel("(ÓÃ»§Ãû³¤¶ÈÏŞÖÆÎª2£­15×Ö½Ú)");
+		labelName1 = new JLabel("(ç”¨æˆ·åé•¿åº¦é™åˆ¶ä¸º2ï¼15å­—èŠ‚)");
 		labelName1.setFont(f);
-		labelSex = new JLabel("ĞÔ  ±ğ£º");
+		labelSex = new JLabel("æ€§  åˆ«ï¼š");
 		labelSex.setFont(f);
-		labelSex1 = new JLabel("(ÇëÑ¡ÔñÄúµÄĞÔ±ğ)");
+		labelSex1 = new JLabel("(è¯·é€‰æ‹©æ‚¨çš„æ€§åˆ«)");
 		labelSex1.setFont(f);
 		
 	    
@@ -71,51 +71,51 @@ public class clientRegister extends JFrame implements ActionListener{
 		logoimagePosition2 = new JLabel(logoImage2);
 		logoimagePosition2.setBackground(new Color(200,230,255));
 		
-		labelPassword1 = new JLabel("¿Ú  Áî£º");
+		labelPassword1 = new JLabel("å£  ä»¤ï¼š");
 		labelPassword1.setFont(f);
-		labelPassword11 = new JLabel("(ÃÜÂë²»µÃÉÙÓÚ6¸ö×Ö·û¶àÓÚ12¸ö×Ö·û)");
+		labelPassword11 = new JLabel("(å¯†ç ä¸å¾—å°‘äº6ä¸ªå­—ç¬¦å¤šäº12ä¸ªå­—ç¬¦)");
 		labelPassword11.setFont(f);
-		labelPassword2 = new JLabel("¿Ú  Áî£º");
+		labelPassword2 = new JLabel("å£  ä»¤ï¼š");
 		labelPassword2.setFont(f);
-		labelPassword22 = new JLabel("(ÇëÔÙÊäÒ»±éÈ·ÈÏ)");
+		labelPassword22 = new JLabel("(è¯·å†è¾“ä¸€éç¡®è®¤)");
 		labelPassword22.setFont(f);
-		labelEmail = new JLabel("E-mail£º");
+		labelEmail = new JLabel("E-mailï¼š");
 		labelEmail.setFont(f);
-		labelEmail1 = new JLabel("(ÇëÊäÈëÕıÈ·µÄÓÊ¼şµØÖ·)");
+		labelEmail1 = new JLabel("(è¯·è¾“å…¥æ­£ç¡®çš„é‚®ä»¶åœ°å€)");
 		labelEmail1.setFont(f);
 
-		radioBoy = new JRadioButton("ÄĞ Éú");
+		radioBoy = new JRadioButton("ç”· ç”Ÿ");
 		radioBoy.setBackground(new Color(150,205,155));
 		radioBoy.setSelected(true);
 		bg.add(radioBoy);
 		
-		radioGirl = new JRadioButton("Å® Éú");
+		radioGirl = new JRadioButton("å¥³ ç”Ÿ");
 		radioGirl.setBackground(new Color(150,205,155));
 		bg.add(radioGirl);
 		
 		textName = new JTextField(10);
-		textName.setToolTipText("¡îÇëÊäÈëÄúÒª×¢²áµÄÓÃ»§Ãû¡î");
+		textName.setToolTipText("â˜†è¯·è¾“å…¥æ‚¨è¦æ³¨å†Œçš„ç”¨æˆ·åâ˜†");
 		textPassword1 = new JPasswordField(10);
-		textPassword1.setToolTipText("¡îÇëÊäÈëÄúµÄÃÜÂë¡î");
+		textPassword1.setToolTipText("â˜†è¯·è¾“å…¥æ‚¨çš„å¯†ç â˜†");
 		textPassword2 = new JPasswordField(10);
-		textPassword2.setToolTipText("¡îÇëÔÙ´ÎÊäÈëÃÜÂëÈ·ÈÏ¡î");
+		textPassword2.setToolTipText("â˜†è¯·å†æ¬¡è¾“å…¥å¯†ç ç¡®è®¤â˜†");
 		textEmail = new JTextField(10);
-		textEmail.setToolTipText("¡îÇëÊäÈëÄúµÄE-mailµØÖ·¡î");
+		textEmail.setToolTipText("â˜†è¯·è¾“å…¥æ‚¨çš„E-mailåœ°å€â˜†");
 		
-		b1 = new JButton("Ìá   ½»");
+		b1 = new JButton("æ   äº¤");
 		b1.setBackground(new Color(0,155,0));
 		b1.addActionListener(this);
-		b2 = new JButton("ÖØ   ÖÃ");
+		b2 = new JButton("é‡   ç½®");
 		b2.setBackground(new Color(0,155,0));
 		b2.addActionListener(this);
-		b3 = new JButton("·µ   »Ø");
+		b3 = new JButton("è¿”   å›");
 		b3.setBackground(new Color(0,155,0));
 		b3.addActionListener(this);
 		
 		Icon image = new ImageIcon("image/ff.jpg");
 		imagePos = new JLabel(image);
 		
-		//ÊÖ¹¤ÉèÖÃ¸÷¸ö×é¼şµÄÎ»ÖÃºÍ´óĞ¡
+		//æ‰‹å·¥è®¾ç½®å„ä¸ªç»„ä»¶çš„ä½ç½®å’Œå¤§å°
 		labelName.setBounds(new Rectangle(40, 20, 60, 20));
 		textName.setBounds(new Rectangle(100, 20, 180, 20));
 		labelName1.setBounds(new Rectangle(300, 20, 200, 20));
@@ -139,7 +139,7 @@ public class clientRegister extends JFrame implements ActionListener{
 		b3.setBounds(new Rectangle(280, 210, 80, 25));
 		
 		imagePos.setBounds(new Rectangle(0,0,530,300));
-		//Ìí¼Ó×é¼şµ½Ãæ°å
+		//æ·»åŠ ç»„ä»¶åˆ°é¢æ¿
 		panelObj.add(labelName);
 		panelObj.add(textName);
 		panelObj.add(labelName1);
@@ -168,13 +168,13 @@ public class clientRegister extends JFrame implements ActionListener{
 	    this.setVisible(true);
 		
 	}
-	//***************************************¼àÌı¸÷Àà°´Å¥µÄ¶¯×÷*********************************************
+	//***************************************ç›‘å¬å„ç±»æŒ‰é’®çš„åŠ¨ä½œ*********************************************
 	public void actionPerformed(ActionEvent evt){          
 		
 		Object obj = evt.getSource();
 		
-		if(obj == b1){                       //×¢²á
-     	    uobj = new RegisterMessage();       //½ÓÊÜÓÃ»§µÄÏêÏ¸×ÊÁÏ
+		if(obj == b1){                       //æ³¨å†Œ
+     	    uobj = new RegisterMessage();       //æ¥å—ç”¨æˆ·çš„è¯¦ç»†èµ„æ–™
 			uobj.RegisterName = textName.getText();
 			uobj.RegisterPassword = new String(textPassword1.getPassword());
 			uobj.AffirmPassword = new String(textPassword2.getPassword());
@@ -190,18 +190,18 @@ public class clientRegister extends JFrame implements ActionListener{
 			String userPassword2 = new String(textPassword2.getPassword()); 
 			String userEmail = textEmail.getText();
 		
-			//ÅĞ¶Ï¸÷ÏîÊäÈëÊÇ·ñ·ûºÏ¹æÔò
+			//åˆ¤æ–­å„é¡¹è¾“å…¥æ˜¯å¦ç¬¦åˆè§„åˆ™
 			if(uobj.RegisterName.length() == 0){
 				
 				JOptionPane jopNamePass = new JOptionPane();
-				jopNamePass.showMessageDialog(null,"ÇëÊäÈëÓÃ»§Ãû!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jopNamePass.showMessageDialog(null,"è¯·è¾“å…¥ç”¨æˆ·å!","æç¤º",JOptionPane.CANCEL_OPTION);
 				return;
 			}
 			
 			if((uobj.RegisterName.length()<2) || (uobj.RegisterName.length()>10)){
 			
 				JOptionPane jopNamePass = new JOptionPane();
-				jopNamePass.showMessageDialog(null,"ÓÃ»§Ãû³¤¶ÈÏŞÖÆÎª2£­15×Ö½Ú!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jopNamePass.showMessageDialog(null,"ç”¨æˆ·åé•¿åº¦é™åˆ¶ä¸º2ï¼15å­—èŠ‚!","æç¤º",JOptionPane.CANCEL_OPTION);
 				textName.setText("");
 				return;
 			}
@@ -209,14 +209,14 @@ public class clientRegister extends JFrame implements ActionListener{
 	        if(uobj.RegisterPassword.length() == 0){
 			
 				JOptionPane jopName = new JOptionPane();
-				jopName.showMessageDialog(null,"ÇëÊäÈëÃÜÂë!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jopName.showMessageDialog(null,"è¯·è¾“å…¥å¯†ç !","æç¤º",JOptionPane.CANCEL_OPTION);
 				return;
 			}
 			
 			if((uobj.RegisterPassword.length() < 4) || (uobj.RegisterPassword.length() > 12)){
 			
 				JOptionPane jopName = new JOptionPane();
-				jopName.showMessageDialog(null,"ÃÜÂë²»µÃÉÙÓÚ6¸ö×Ö·û¶àÓÚ10¸ö×Ö·û!ÇëÖØĞÂÊäÈë!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jopName.showMessageDialog(null,"å¯†ç ä¸å¾—å°‘äº6ä¸ªå­—ç¬¦å¤šäº10ä¸ªå­—ç¬¦!è¯·é‡æ–°è¾“å…¥!","æç¤º",JOptionPane.CANCEL_OPTION);
 				textPassword1.setText("");
 				return;
 			}
@@ -224,14 +224,14 @@ public class clientRegister extends JFrame implements ActionListener{
 			if(userPassword2.length() == 0){
 			
 				JOptionPane jopName = new JOptionPane();
-				jopName.showMessageDialog(null,"ÇëÔÙ´ÎÊäÈëÃÜÂë!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jopName.showMessageDialog(null,"è¯·å†æ¬¡è¾“å…¥å¯†ç !","æç¤º",JOptionPane.CANCEL_OPTION);
 				return;
 			}
 			
 			if(!uobj.RegisterPassword.equals(userPassword2)){
 			
 				JOptionPane jopName = new JOptionPane();
-				jopName.showMessageDialog(null,"ÄúÊäÈëµÄÃÜÂëºÍÈ·ÈÏÃÜÂë²»Ò»ÖÂ!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jopName.showMessageDialog(null,"æ‚¨è¾“å…¥çš„å¯†ç å’Œç¡®è®¤å¯†ç ä¸ä¸€è‡´!","æç¤º",JOptionPane.CANCEL_OPTION);
 				textPassword2.setText("");
 				return;
 			}
@@ -239,12 +239,12 @@ public class clientRegister extends JFrame implements ActionListener{
 			if(userEmail.length() == 0){
 			
 				JOptionPane jopPassword = new JOptionPane();
-				jopPassword.showMessageDialog(null,"ÇëÊäÈëÓÊÏäµØÖ·!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jopPassword.showMessageDialog(null,"è¯·è¾“å…¥é‚®ç®±åœ°å€!","æç¤º",JOptionPane.CANCEL_OPTION);
 				return;
 			}
 			
 			boolean flay=false;         
-			for( int i= 1;i < userEmail.length()-3;i++){   //ÅĞ¶ÏEmailÊäÈëÊÇ·ñÕıÈ·
+			for( int i= 1;i < userEmail.length()-3;i++){   //åˆ¤æ–­Emailè¾“å…¥æ˜¯å¦æ­£ç¡®
 			
 				if(userEmail.charAt(i)=='@'){
 					for(int j=i+2;j<userEmail.length()-1;j++){
@@ -257,39 +257,39 @@ public class clientRegister extends JFrame implements ActionListener{
 			if(!flay){
 			
 				JOptionPane jopPassword = new JOptionPane();
-				jopPassword.showMessageDialog(null,"ÇëÊäÈëÕıÈ·ÓĞĞ§µÄÓÊÏäµØÖ·£¡","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jopPassword.showMessageDialog(null,"è¯·è¾“å…¥æ­£ç¡®æœ‰æ•ˆçš„é‚®ç®±åœ°å€ï¼","æç¤º",JOptionPane.CANCEL_OPTION);
 				textEmail.setText("");
 				return;
 			}
 			
-			//Óë·şÎñÆ÷Á¬½Ó²¢½Ó·¢ÏûÏ¢						
+			//ä¸æœåŠ¡å™¨è¿æ¥å¹¶æ¥å‘æ¶ˆæ¯						
 			try{
 		    	
 		    	Socket toServer;
-		    	toServer = new Socket("127.0.0.1",1001);     //Á¬½Óµ½·şÎñÆ÷
+		    	toServer = new Socket("127.0.0.1",1001);     //è¿æ¥åˆ°æœåŠ¡å™¨
 		    	
-		    	//Ğ´¿Í»§ÏêÏ¸×ÊÁÏµ½·şÎñÆ÷socket
+		    	//å†™å®¢æˆ·è¯¦ç»†èµ„æ–™åˆ°æœåŠ¡å™¨socket
 		    	ObjectOutputStream streamToServer=new ObjectOutputStream(toServer.getOutputStream());
 			    streamToServer.writeObject((RegisterMessage)uobj);
-				//¶ÁÀ´×Ô·şÎñÆ÷socketµÄµÇÂ½×´Ì¬
+				//è¯»æ¥è‡ªæœåŠ¡å™¨socketçš„ç™»é™†çŠ¶æ€
              	ObjectInputStream streamFromServer= new ObjectInputStream(toServer.getInputStream());
              	ValidateMessage msg =(ValidateMessage)streamFromServer.readObject();
 				String str = msg.validateMessage;
-				if(str.toString().equals("ok")){        //×¢²á³É¹¦
+				if(str.toString().equals("ok")){        //æ³¨å†ŒæˆåŠŸ
 					
 					JOptionPane jopPassword = new JOptionPane();
-					jopPassword.showMessageDialog(null,"×¢²á³É¹¦£¡");
+					jopPassword.showMessageDialog(null,"æ³¨å†ŒæˆåŠŸï¼");
 					this.dispose();
 					
-					//»ñÈ¡µÇÂ½ĞÅÏ¢
+					//è·å–ç™»é™†ä¿¡æ¯
 					clientLogin login=new clientLogin();
 					login.txtUserName.setText(uobj.RegisterName);
 					login.txtUserPwd.setText(uobj.RegisterPassword);
 				}
-				else if(str.toString().equals("no")){   //×¢²áÊ§°Ü
+				else if(str.toString().equals("no")){   //æ³¨å†Œå¤±è´¥
 			
 					JOptionPane jopPassword = new JOptionPane();
-					jopPassword.showMessageDialog(null,"¸ÃÓÃ»§ÃûÒÑÓĞÈËÊ¹ÓÃ£¡","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+					jopPassword.showMessageDialog(null,"è¯¥ç”¨æˆ·åå·²æœ‰äººä½¿ç”¨ï¼","æç¤º",JOptionPane.CANCEL_OPTION);
 					textName.setText("");
 					return;
 				}
@@ -298,17 +298,17 @@ public class clientRegister extends JFrame implements ActionListener{
 			}			
 			catch(Exception e){
 				JOptionPane jop = new JOptionPane();
-				jop.showMessageDialog(null,"²»ÄÜÁ¬½Ó·şÎñÆ÷£¡","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+				jop.showMessageDialog(null,"ä¸èƒ½è¿æ¥æœåŠ¡å™¨ï¼","æç¤º",JOptionPane.CANCEL_OPTION);
 			}	
 		}
-		if(obj == b2){             //Çå¿Õ		
+		if(obj == b2){             //æ¸…ç©º		
 			
 			textName.setText("");
 			textPassword1.setText("");
 			textPassword2.setText("");
 			textEmail.setText("");
 		}	
-		if(obj==b3){               //·µ»Ø
+		if(obj==b3){               //è¿”å›
 			
 			new clientLogin();		
 			this.setVisible(false);

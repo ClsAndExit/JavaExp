@@ -1,11 +1,11 @@
-package webChat;
+package myclass;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-//***********************************¸ÃÀàÓÃÀ´ÉèÖÃ×ÖÌå************************************
+//***********************************è¯¥ç±»ç”¨æ¥è®¾ç½®å­—ä½“************************************
 public class FontChooser extends JDialog {
 	
-	//ÉùÃ÷±äÁ¿
+	//å£°æ˜å˜é‡
 	protected Font resultFont;
 	protected String resultName;
 	protected int resultSize;
@@ -21,11 +21,11 @@ public class FontChooser extends JDialog {
 		"8", "10", "11", "12", "14", "16", "18", "20", "24",
 		"30", "36", "40", "48", "60", "72"
 		};	
-	protected static final int defaultSize = 4; /** È±Ê¡µÄ´óĞ¡  4µÄpoint=14*/
+	protected static final int defaultSize = 4; /** ç¼ºçœçš„å¤§å°  4çš„point=14*/
 	protected JLabel previewArea;
-	//********************************¹¹Ôì×ÖÌåÉèÖÃ¶Ô»°¿ò*********************************
+	//********************************æ„é€ å­—ä½“è®¾ç½®å¯¹è¯æ¡†*********************************
 	public FontChooser(Frame f) {
-		super(f, "×ÖÌåÑ¡Ôñ", true);
+		super(f, "å­—ä½“é€‰æ‹©", true);
 		Container cp = getContentPane();
 		Panel top = new Panel();
 		top.setLayout(new FlowLayout());
@@ -51,37 +51,37 @@ public class FontChooser extends JDialog {
 		Panel attrs = new Panel();
 		top.add(attrs);
 		attrs.setLayout(new GridLayout(0,1));
-		attrs.add(bold  =new Checkbox("£¨´ÖÌå£©Bold", false));
-		attrs.add(italic=new Checkbox("£¨Ğ±Ìå£©Italic", false));
+		attrs.add(bold  =new Checkbox("ï¼ˆç²—ä½“ï¼‰Bold", false));
+		attrs.add(italic=new Checkbox("ï¼ˆæ–œä½“ï¼‰Italic", false));
 
 		previewArea = new JLabel(displayText, JLabel.CENTER);
 		previewArea.setSize(200, 50);
 		cp.add(BorderLayout.CENTER, previewArea);
 		
 		Panel bot = new Panel();
-		JButton okButton = new JButton("È·¶¨");
+		JButton okButton = new JButton("ç¡®å®š");
 		bot.add(okButton);
 		okButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				previewFont();   //²é¿´×ÖÌå 
+				previewFont();   //æŸ¥çœ‹å­—ä½“ 
 				dispose();
 				setVisible(false);
 			}
 		});
 
-		JButton pvButton = new JButton("Ô¤ÀÀ");
+		JButton pvButton = new JButton("é¢„è§ˆ");
 		bot.add(pvButton);
 		pvButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				previewFont();  //²é¿´×ÖÌå
+				previewFont();  //æŸ¥çœ‹å­—ä½“
 			}
 		});
 
-		JButton canButton = new JButton("È¡Ïû");
+		JButton canButton = new JButton("å–æ¶ˆ");
 		bot.add(canButton);
 		canButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// ÉèÖÃËùÓĞµÄÖµÎª¿Õ
+				// è®¾ç½®æ‰€æœ‰çš„å€¼ä¸ºç©º
 				resultFont = null;
 				resultName = null;
 				resultSize = 0;
@@ -94,11 +94,11 @@ public class FontChooser extends JDialog {
 		});
 
 		cp.add(BorderLayout.SOUTH, bot);
-		previewFont(); // È·±£¿´µ½¸üĞÂµÄ×ÖÌå!
+		previewFont(); // ç¡®ä¿çœ‹åˆ°æ›´æ–°çš„å­—ä½“!
 		pack();
 		setLocation(200, 200);
 	}
-	//*******************************Ô¤ÀÀ×ÖÌå·½·¨****************************************
+	//*******************************é¢„è§ˆå­—ä½“æ–¹æ³•****************************************
 	protected void previewFont() {		
 		resultName = fNameChoice.getSelectedItem();
 		String resultSizeName = fSizeChoice.getSelectedItem();
@@ -110,9 +110,9 @@ public class FontChooser extends JDialog {
 		if (isItalic) attrs |= Font.ITALIC;
 		resultFont = new Font(resultName, attrs, resultSize);
 		previewArea.setFont(resultFont);
-		pack();		// È·±£¶Ô»°¿ò×ã¹»´ó.
+		pack();		// ç¡®ä¿å¯¹è¯æ¡†è¶³å¤Ÿå¤§.
 	}
-	//*********************************»ñÈ¡ÒÑÉèÖÃ×ÖÎÀÌå*********************************
+	//*********************************è·å–å·²è®¾ç½®å­—å«ä½“*********************************
 	public Font getSelectedFont() {
 		return resultFont;
 	}

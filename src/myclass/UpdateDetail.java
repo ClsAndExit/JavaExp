@@ -1,11 +1,11 @@
-package webChat;
-import webChat.*;
+package myclass;
+import myclass.*;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
-//**********************************¸ÃÀàÊµÏÖ¸üĞÂÓÃ»§×ÊÁÏ*********************************
+//**********************************è¯¥ç±»å®ç°æ›´æ–°ç”¨æˆ·èµ„æ–™*********************************
 public class UpdateDetail extends JDialog{
   
   	JLabel myImage;
@@ -20,11 +20,11 @@ public class UpdateDetail extends JDialog{
  	JPanel panel;
     Font myfont;
     String name;
-	//*******************************¹¹Ôì¸üĞÂÓÃ»§×ÊÁÏ½çÃæ********************************	       
+	//*******************************æ„é€ æ›´æ–°ç”¨æˆ·èµ„æ–™ç•Œé¢********************************	       
     public UpdateDetail(String uName){
     	name = uName;
-        myfont=new Font("ËÎÌå",Font.PLAIN,13);
-        this.setTitle("¸üĞÂÓÃ»§×ÊÁÏ");
+        myfont=new Font("å®‹ä½“",Font.PLAIN,13);
+        this.setTitle("æ›´æ–°ç”¨æˆ·èµ„æ–™");
         panel = new JPanel();
         this.getContentPane().add(panel);
         panel.setLayout(null);
@@ -32,9 +32,9 @@ public class UpdateDetail extends JDialog{
          
         Icon image = new ImageIcon("image/bb.gif");
         myImage = new JLabel(image);     
-        newPass_Label=new JLabel("ĞÂÃÜÂë:");
+        newPass_Label=new JLabel("æ–°å¯†ç :");
         newPass_Label.setFont(myfont);      
-        Regain_Label=new JLabel("ÑéÖ¤ÃÜÂë:");
+        Regain_Label=new JLabel("éªŒè¯å¯†ç :");
         Regain_Label.setFont(myfont);      
         Email_label=new JLabel("Email:");
         Email_label.setFont(myfont);     
@@ -42,7 +42,7 @@ public class UpdateDetail extends JDialog{
         Regain=new JPasswordField(6);
         email=new JTextField(15);     
      
-        close=new JButton("¹Ø±Õ"); //¹Ø±Õ
+        close=new JButton("å…³é—­"); //å…³é—­
         close.setPreferredSize(new Dimension(60,20));
         close.setFont(myfont);
         close.setBackground(new Color(0,155,0));      
@@ -54,7 +54,7 @@ public class UpdateDetail extends JDialog{
                          	setVisible(false);
                         }
                      });
-		submit=new JButton("¸üĞÂ");
+		submit=new JButton("æ›´æ–°");
         submit.setPreferredSize(new Dimension(60,20));
         submit.setFont(myfont);
         submit.setBackground(new Color(0,155,0));
@@ -71,9 +71,9 @@ public class UpdateDetail extends JDialog{
      	myImage.setBounds(new Rectangle(285,0,100,100));
              
         panel.add(newPass_Label);           
-        panel.add(newPass);              ///ĞÂÃÜÂë            
-        panel.add(Regain_Label);              ///ÑéÖ¤ÃÜÂë            
-        panel.add(Regain);              ///ÑéÖ¤ÃÜÂë            
+        panel.add(newPass);              ///æ–°å¯†ç             
+        panel.add(Regain_Label);              ///éªŒè¯å¯†ç             
+        panel.add(Regain);              ///éªŒè¯å¯†ç             
         panel.add(Email_label);              ///Email          
         panel.add(email);              ///Email 
         panel.add(close);
@@ -83,14 +83,14 @@ public class UpdateDetail extends JDialog{
         
         setSize(380,230);
         Dimension us = this.getSize();
-   		//»ñÈ¡ÆÁÄ»µÄ³ß´ç
+   		//è·å–å±å¹•çš„å°ºå¯¸
 		Dimension them = Toolkit.getDefaultToolkit().getScreenSize();
 		int newX = (them.width - us.width) / 2 ;
 		int newY = (them.height - us.height) / 2 ;		
 		this.setLocation(newX,newY);
         setVisible(true);
 	}
-    //******************************ÊµÏÖ¸÷ÖÖ°´Å¥ÊÂ¼ş*************************************   
+    //******************************å®ç°å„ç§æŒ‰é’®äº‹ä»¶*************************************   
 	class UpdateClient implements ActionListener{
        		 
     	public void actionPerformed(ActionEvent e){
@@ -106,14 +106,14 @@ public class UpdateDetail extends JDialog{
 	        	if(password1.length() == 0){
 			
 					JOptionPane jopName = new JOptionPane();
-					jopName.showMessageDialog(null,"ÇëÊäÈëÃÜÂë!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+					jopName.showMessageDialog(null,"è¯·è¾“å…¥å¯†ç !","æç¤º",JOptionPane.CANCEL_OPTION);
 					return;
 				}
 			
 				if((password1.length() < 4) || (password1.length() > 12)){
 			
 					JOptionPane jopName = new JOptionPane();
-					jopName.showMessageDialog(null,"ÃÜÂë²»µÃÉÙÓÚ6¸ö×Ö·û¶àÓÚ10¸ö×Ö·û!ÇëÖØĞÂÊäÈë!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+					jopName.showMessageDialog(null,"å¯†ç ä¸å¾—å°‘äº6ä¸ªå­—ç¬¦å¤šäº10ä¸ªå­—ç¬¦!è¯·é‡æ–°è¾“å…¥!","æç¤º",JOptionPane.CANCEL_OPTION);
 					newPass.setText("");
 					return;
 				}
@@ -121,22 +121,22 @@ public class UpdateDetail extends JDialog{
 				if(password2.length() == 0){
 			
 					JOptionPane jopName = new JOptionPane();
-					jopName.showMessageDialog(null,"ÇëÔÙ´ÎÊäÈëÃÜÂë!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+					jopName.showMessageDialog(null,"è¯·å†æ¬¡è¾“å…¥å¯†ç !","æç¤º",JOptionPane.CANCEL_OPTION);
 					return;
 				}
 			
 				if(!password2.equals(password1)){
 			
 					JOptionPane jopName = new JOptionPane();
-					jopName.showMessageDialog(null,"ÄúÊäÈëµÄÃÜÂëºÍÈ·ÈÏÃÜÂë²»Ò»ÖÂ!","ÌáÊ¾",JOptionPane.CANCEL_OPTION);
+					jopName.showMessageDialog(null,"æ‚¨è¾“å…¥çš„å¯†ç å’Œç¡®è®¤å¯†ç ä¸ä¸€è‡´!","æç¤º",JOptionPane.CANCEL_OPTION);
 					Regain.setText("");
 					return;
 				}
-            	updateUser();          //µ÷ÓÃ¸üĞÂÓÃ»§×ÊÁÏ·½·¨
+            	updateUser();          //è°ƒç”¨æ›´æ–°ç”¨æˆ·èµ„æ–™æ–¹æ³•
             }
 		}	
 	}
-    //**********************************¸üĞÂ·½·¨******************************************
+    //**********************************æ›´æ–°æ–¹æ³•******************************************
     public  void updateUser(){
        	
         UpdateUser uObj=new UpdateUser();    									       
@@ -156,11 +156,11 @@ public class UpdateDetail extends JDialog{
 		
 			String str = msg.validateMessage;	                                     
 			if(str.toString().equals("ok")){                                       
-			 	JOptionPane.showMessageDialog(null,"×ÊÁÏ¸üĞÂÓĞĞ§!!!");
+			 	JOptionPane.showMessageDialog(null,"èµ„æ–™æ›´æ–°æœ‰æ•ˆ!!!");
 			 	this.dispose();
 			}
 			else{
-				JOptionPane.showMessageDialog(null,"×ÊÁÏ¸üĞÂ²»³É¹¦!");
+				JOptionPane.showMessageDialog(null,"èµ„æ–™æ›´æ–°ä¸æˆåŠŸ!");
 				return;
 			}
 			streamToServer.close();

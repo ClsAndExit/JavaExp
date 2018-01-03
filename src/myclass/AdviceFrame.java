@@ -1,12 +1,12 @@
-package webChat;
-import webChat.*;
+package myclass;
+import myclass.*;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
 import java.util.*;
-//***********************************¸ÃÀà¿ÉÒÔÊµÏÖÁôÑÔµÄ·¢ÊÕ*****************************
+//***********************************è¯¥ç±»å¯ä»¥å®ç°ç•™è¨€çš„å‘æ”¶*****************************
 public class AdviceFrame extends JDialog{
  
        JPanel   panel1;
@@ -19,11 +19,11 @@ public class AdviceFrame extends JDialog{
        String b2Name;
        String name;
        String content;
-       //***************************¹¹Ôìº¯Êı********************************************
+       //***************************æ„é€ å‡½æ•°********************************************
        public AdviceFrame(String userName,String button,String button2,String msg)
        {
        		  name =userName;
-              this.setTitle("ÁôÑÔ²¾");
+              this.setTitle("ç•™è¨€ç°¿");
               bName = button;
               b2Name=button2;
               content=msg;
@@ -57,26 +57,26 @@ public class AdviceFrame extends JDialog{
               
               setSize(380,320);
               Dimension us = this.getSize();
-   			  //»ñÈ¡ÆÁÄ»µÄ³ß´ç
+   			  //è·å–å±å¹•çš„å°ºå¯¸
 			  Dimension them = Toolkit.getDefaultToolkit().getScreenSize();
 		      int newX = (them.width - us.width) / 2 ;
 		      int newY = (them.height - us.height) / 2 ;		
 		      this.setLocation(newX,newY);
               show();
        }
-       //*******************************ÊÂ¼ş´¦Àí*****************************************	       
+       //*******************************äº‹ä»¶å¤„ç†*****************************************	       
        class UserAdvice implements ActionListener{
 
        		public void actionPerformed(ActionEvent e){
        			
        			GregorianCalendar  calendar = new GregorianCalendar();
-       			String strDate ="¡¾"+(calendar.get(calendar.MONTH)+1)+"/"+calendar.get(calendar.DATE)+"/"
-       			                +calendar.get(calendar.YEAR)+"¡¿";
+       			String strDate ="ã€"+(calendar.get(calendar.MONTH)+1)+"/"+calendar.get(calendar.DATE)+"/"
+       			                +calendar.get(calendar.YEAR)+"ã€‘";
                                  
        			Object obj = e.getSource();
        			if(obj == (JButton)bt1){
        				
-       				if(bName =="·¢ËÍ"){
+       				if(bName =="å‘é€"){
        					
        					ClientAdvice uObj=new ClientAdvice();    									       
 						uObj.FromUser = name;
@@ -84,15 +84,15 @@ public class AdviceFrame extends JDialog{
 						uObj.ToUser = tf1.getText(); 
 						uObj.date = strDate;
 						if(uObj.advice.length()==0){
-							JOptionPane.showMessageDialog(null,"·¢ËÍÄÚÈİ²»ÄÜÎª¿Õ!!!");
+							JOptionPane.showMessageDialog(null,"å‘é€å†…å®¹ä¸èƒ½ä¸ºç©º!!!");
 							return;
 						}
 						if(uObj.ToUser.length()==0){
-							JOptionPane.showMessageDialog(null,"·¢ËÍ¶ÔÏó²»ÄÜÎª¿Õ!!!");
+							JOptionPane.showMessageDialog(null,"å‘é€å¯¹è±¡ä¸èƒ½ä¸ºç©º!!!");
 							return;
 						}
 						if(uObj.FromUser.equals(uObj.ToUser)){
-							JOptionPane.showMessageDialog(null,"²»±ØÏò×Ô¼ºÁôÑÔ!!!");
+							JOptionPane.showMessageDialog(null,"ä¸å¿…å‘è‡ªå·±ç•™è¨€!!!");
 							return;
 						}	
     	
@@ -108,7 +108,7 @@ public class AdviceFrame extends JDialog{
 							if(msg.validateMessage.compareTo("ok")==0){
 								
 								JOptionPane jopNamePass = new JOptionPane();
-								jopNamePass.showMessageDialog(null,"³É¹¦·¢ËÍ!!!");
+								jopNamePass.showMessageDialog(null,"æˆåŠŸå‘é€!!!");
 							}
 							                       
 							streamToServer.close();
@@ -131,7 +131,7 @@ public class AdviceFrame extends JDialog{
        		   }
        	  }
       }
-      //**************************************±£´æÁôÑÔ************************************ 
+      //**************************************ä¿å­˜ç•™è¨€************************************ 
       public void saveAdvice(){
        		try{
 				String AdviceContent =ta1.getText();
@@ -140,32 +140,32 @@ public class AdviceFrame extends JDialog{
 				choo.showSaveDialog(this);
 				File saveFile = choo.getSelectedFile();
 		
-				//ÊäÈëÎÄ¼şµ½´ÅÅÌ			
+				//è¾“å…¥æ–‡ä»¶åˆ°ç£ç›˜			
 				FileOutputStream fo=new FileOutputStream(saveFile+".txt");
 				fo.write(AdviceContent.getBytes());
 				fo.close();	
 				
 				ta1.setText("");
 				tf1.setText("");
-				b2Name="ÍË³ö";
+				b2Name="é€€å‡º";
 				bt2.setText(b2Name);
-				bName="·¢ËÍ";
+				bName="å‘é€";
 				bt1.setText(bName);
 			}
 			catch(IOException e){}		
       }
-      //*******************************É¾³ıÁôÑÔ****************************************
+      //*******************************åˆ é™¤ç•™è¨€****************************************
       public void delAdvice(){
       	
-      	if(bName =="·¢ËÍ"){
+      	if(bName =="å‘é€"){
       		this.setVisible(false);
       	}
       	else{
 			ta1.setText("");
 			tf1.setText("");
-			b2Name="ÍË³ö";
+			b2Name="é€€å‡º";
 			bt2.setText(b2Name);
-			bName="·¢ËÍ";
+			bName="å‘é€";
 			bt1.setText(bName);
       	}
       }

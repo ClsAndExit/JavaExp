@@ -1,5 +1,5 @@
-package webChat;
-import webChat.*;
+package myclass;
+import myclass.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
@@ -8,7 +8,7 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 
-//******************************ConnectionÀàÀ´Á¬½ÓÏß³Ì**********************************
+//******************************Connectionç±»æ¥è¿æ¥çº¿ç¨‹**********************************
 public class Connection extends Thread{
 	
 	Socket netClient;
@@ -21,9 +21,9 @@ public class Connection extends Thread{
   	FileOutputStream fileOutStream;
   	ObjectOutputStream objOutStream;
   	
-  	Object obj;     //´æ´¢´Ó¿Í»§¶Ë»ñÈ¡µÄĞÅÏ¢
+  	Object obj;     //å­˜å‚¨ä»å®¢æˆ·ç«¯è·å–çš„ä¿¡æ¯
     static FileObject fileObj;
- 	//***************************Connection ½¨Á¢Á¬½ÓµÄ·½·¨********************************
+ 	//***************************Connection å»ºç«‹è¿æ¥çš„æ–¹æ³•********************************
   	public Connection(Socket client){
   	
   		netClient = client;
@@ -33,55 +33,55 @@ public class Connection extends Thread{
   	  	}
   	  	catch(IOException e){
   	  		try{
-  	  			netClient.close();           //Èç¹û²úÉú´íÎó,Ôò¹Ø±ÕSocket
+  	  			netClient.close();           //å¦‚æœäº§ç”Ÿé”™è¯¯,åˆ™å…³é—­Socket
   	  		}
   	  		catch(IOException ee){
-  	  			System.out.println("²»ÄÜ½¨Á¢Á÷!" + ee);
+  	  			System.out.println("ä¸èƒ½å»ºç«‹æµ!" + ee);
   	  			return;
   	  		}
   	  	}
-  	  	this.start();       //Æô¶¯ connection Ïß³Ì                                        
+  	  	this.start();       //å¯åŠ¨ connection çº¿ç¨‹                                        
   	}
-  	//******************************connection Ïß³Ì**************************************
+  	//******************************connection çº¿ç¨‹**************************************
   	public void run(){
 
   		try{
-	  		obj = fromClient.readObject();    //¶ÁÈ¡´Ó¿Í»§¶Ë´«À´µÄ¶ÔÏóÁ÷
+	  		obj = fromClient.readObject();    //è¯»å–ä»å®¢æˆ·ç«¯ä¼ æ¥çš„å¯¹è±¡æµ
 
-			if(obj == null)         //¼ì²é¿Í»§¶ËÊÇ·ñÓĞĞÅÏ¢´«À´
+			if(obj == null)         //æ£€æŸ¥å®¢æˆ·ç«¯æ˜¯å¦æœ‰ä¿¡æ¯ä¼ æ¥
 			   return;
 
-			//¸ù¾İËù´«µİÀ´µÄÏûÏ¢ÀàÃûÀ´Ñ¡ÔñÏàÓ¦µÄ·½·¨
+			//æ ¹æ®æ‰€ä¼ é€’æ¥çš„æ¶ˆæ¯ç±»åæ¥é€‰æ‹©ç›¸åº”çš„æ–¹æ³•
 			
-			if(obj.getClass().getName().compareTo("myclass.LoginMessage") == 0) //µÇÂ¼
+			if(obj.getClass().getName().compareTo("myclass.LoginMessage") == 0) //ç™»å½•
 			
 				userLogin();
 			
-			if(obj.getClass().getName().compareTo("myclass.RegisterMessage") == 0) //×¢²á
+			if(obj.getClass().getName().compareTo("myclass.RegisterMessage") == 0) //æ³¨å†Œ
 			
 				userRegister();
 
-			if(obj.getClass().getName().compareTo("myclass.ChatMessage") == 0)  //ÁÄÌì
+			if(obj.getClass().getName().compareTo("myclass.ChatMessage") == 0)  //èŠå¤©
 			
 				chatMessage();
 			
-	    	if(obj.getClass().getName().compareTo("myclass.ValidateMessage") == 0)  //ÍË³ö
+	    	if(obj.getClass().getName().compareTo("myclass.ValidateMessage") == 0)  //é€€å‡º
 			
 				userExit();
 			
-			if(obj.getClass().getName().compareTo("myclass.ClientAdvice") == 0) //ÁôÑÔ
+			if(obj.getClass().getName().compareTo("myclass.ClientAdvice") == 0) //ç•™è¨€
 			
 				userAdvice();
 		
-			if(obj.getClass().getName().compareTo("myclass.ClientName")==0)     //Ãæ°åĞÅÏ¢
+			if(obj.getClass().getName().compareTo("myclass.ClientName")==0)     //é¢æ¿ä¿¡æ¯
 			
 				sendMessage();	
 				
-	  		if(obj.getClass().getName().compareTo("myclass.FileObject")==0)  //ÎÄ¼ş`
+	  		if(obj.getClass().getName().compareTo("myclass.FileObject")==0)  //æ–‡ä»¶`
 	
 	  			saveFile();
 	  			
-	  		if(obj.getClass().getName().compareTo("myclass.UpdateUser")==0)  //¸üĞÂ×ÊÁÏ
+	  		if(obj.getClass().getName().compareTo("myclass.UpdateUser")==0)  //æ›´æ–°èµ„æ–™
 	  			
 	  			updateDetail();
 	  	}
@@ -99,19 +99,19 @@ public class Connection extends Thread{
 	  	}		  
   	}
   	
-  	//*******************************µÇÂ¼µÄ·½·¨******************************************* 		
+  	//*******************************ç™»å½•çš„æ–¹æ³•******************************************* 		
  	public void userLogin(){
   		
   		try{
-  	  	    //¶ÁÎÄ¼şÖĞµÄĞÅÏ¢  			
+  	  	    //è¯»æ–‡ä»¶ä¸­çš„ä¿¡æ¯  			
   			Vector temp; 
   			fileInStream = new FileInputStream("user.txt"); 
   			objInStream = new ObjectInputStream(fileInStream);     			 
   			temp = (Vector)objInStream.readObject();
   
-  			LoginMessage logObj = (LoginMessage)obj; //»ñµÃÓÃ»§´«À´µÄµÇÂ½ĞÅÏ¢		
+  			LoginMessage logObj = (LoginMessage)obj; //è·å¾—ç”¨æˆ·ä¼ æ¥çš„ç™»é™†ä¿¡æ¯		
   	  	    
-  	  	    //ÅĞ¶ÏµÇÂ¼ĞÅÏ¢µÄÕıÈ·ĞÔ
+  	  	    //åˆ¤æ–­ç™»å½•ä¿¡æ¯çš„æ­£ç¡®æ€§
   			String loginName = logObj.loginName;
   			String loginPass = logObj.loginPassword;
   			boolean reName =false;
@@ -130,8 +130,8 @@ public class Connection extends Thread{
 						answer("ok",loginName);
 						Server.userOnLine.addElement((String)logObj.loginName);
 	 					
-						String strmessage = "ÓÃ»§"+ logObj.loginName +" µÇÂ½³É¹¦!\n";
-						System.out.println(strmessage);   //·şÎñÆ÷¶ËÊä³öÏÔÊ¾
+						String strmessage = "ç”¨æˆ·"+ logObj.loginName +" ç™»é™†æˆåŠŸ!\n";
+						System.out.println(strmessage);   //æœåŠ¡å™¨ç«¯è¾“å‡ºæ˜¾ç¤º
 					}
 					else{
 						answer("online",loginName);
@@ -141,7 +141,7 @@ public class Connection extends Thread{
 			} 
   							
 			if(!flag){                                           
-				answer("no",loginName);  //Æ¥Åä²»³É¹¦µÄ»°·¢ËÍ"no"ĞÅÏ¢µ½¿Í»§¶Ë	
+				answer("no",loginName);  //åŒ¹é…ä¸æˆåŠŸçš„è¯å‘é€"no"ä¿¡æ¯åˆ°å®¢æˆ·ç«¯	
 			}
 			fileInStream.close();
 			objInStream.close();
@@ -153,24 +153,24 @@ public class Connection extends Thread{
   		catch(NotSerializableException e){}
   		
   		catch(IOException e){
-  			System.out.println("ÕÒ²»µ½ÎÄ¼ş£¬±ØĞëÏÈ×¢²á!!!");
+  			System.out.println("æ‰¾ä¸åˆ°æ–‡ä»¶ï¼Œå¿…é¡»å…ˆæ³¨å†Œ!!!");
   		}
   		catch(Exception e){}
   	}   
   		
-//**********************************×¢²áµÄ·½·¨********************************************
+//**********************************æ³¨å†Œçš„æ–¹æ³•********************************************
   	public void userRegister(){
   		
   		try{
-  			//¶ÁÎÄ¼şÖĞµÄĞÅÏ¢
-  			Vector temp;       //¶¨ÒåÒ»¸öÁÙÊ±ÏòÁ¿
+  			//è¯»æ–‡ä»¶ä¸­çš„ä¿¡æ¯
+  			Vector temp;       //å®šä¹‰ä¸€ä¸ªä¸´æ—¶å‘é‡
   			fileInStream = new FileInputStream("user.txt"); 
   			objInStream = new ObjectInputStream(fileInStream);     
   			temp = (Vector)objInStream.readObject();
   			    
-  			RegisterMessage regObj = (RegisterMessage)obj;      //½«×¢²áĞÅÏ¢ĞòÁĞ»¯ÀàÊµÀı»¯
+  			RegisterMessage regObj = (RegisterMessage)obj;      //å°†æ³¨å†Œä¿¡æ¯åºåˆ—åŒ–ç±»å®ä¾‹åŒ–
   	
-  			//ÑéÖ¤ÓÃ»§ÃûÊÇ·ñÒÑÓĞÈËÊ¹ÓÃ
+  			//éªŒè¯ç”¨æˆ·åæ˜¯å¦å·²æœ‰äººä½¿ç”¨
   			String regName = regObj.RegisterName;
   			if(checkName(temp,regName)){         
    	
@@ -179,8 +179,8 @@ public class Connection extends Thread{
   				objInStream.close();
   			}
   			else{
-  				//½«ÓÃ»§×¢²áĞÅÏ¢Ğ´ÈëÎÄ±¾ÎÄµµ
-	  			temp.addElement(regObj);        //Ìí¼Ó×¢²áĞÅÏ¢µ½ÁÙÊ±ÏòÁ¿                 
+  				//å°†ç”¨æˆ·æ³¨å†Œä¿¡æ¯å†™å…¥æ–‡æœ¬æ–‡æ¡£
+	  			temp.addElement(regObj);        //æ·»åŠ æ³¨å†Œä¿¡æ¯åˆ°ä¸´æ—¶å‘é‡                 
 	  			fileOutStream = new FileOutputStream("user.txt");       
 	  			objOutStream = new ObjectOutputStream(fileOutStream);
 	  			objOutStream.writeObject(temp);
@@ -193,7 +193,7 @@ public class Connection extends Thread{
   		}
   		catch(IOException e){
   			try{
-  				//µÚÒ»¸öÓÃ»§×¢²á
+  				//ç¬¬ä¸€ä¸ªç”¨æˆ·æ³¨å†Œ
   				Vector temp = new Vector(0,1);
   				RegisterMessage regObj = (RegisterMessage)obj; 
   				temp.addElement(regObj);
@@ -216,21 +216,21 @@ public class Connection extends Thread{
   		}
   	}
   	
-  	//**********************************±£´æÁÄÌìĞÅÏ¢**************************************	  
+  	//**********************************ä¿å­˜èŠå¤©ä¿¡æ¯**************************************	  
  	public void chatMessage(){
  		
-		ChatMessage chatObj = new ChatMessage(); //½«½ÓÊÕµ½µÄ¶ÔÏóÖµ¸³¸øÁÄÌìĞÅÏ¢µÄĞòÁĞ»¯¶ÔÏó
+		ChatMessage chatObj = new ChatMessage(); //å°†æ¥æ”¶åˆ°çš„å¯¹è±¡å€¼èµ‹ç»™èŠå¤©ä¿¡æ¯çš„åºåˆ—åŒ–å¯¹è±¡
 		chatObj = (ChatMessage)obj;
-		Server.chatGainedMessage.addElement((ChatMessage)chatObj); //½«ÁÄÌìĞÅÏ¢±£´æ
+		Server.chatGainedMessage.addElement((ChatMessage)chatObj); //å°†èŠå¤©ä¿¡æ¯ä¿å­˜
 	}
   	
- 	//***************************ÓÃ»§ÍË³öÓë×¢ÏúĞÅÏ¢***************************************
+ 	//***************************ç”¨æˆ·é€€å‡ºä¸æ³¨é”€ä¿¡æ¯***************************************
 	public  void userExit(){
   	 	
   	 	ValidateMessage eObj = new ValidateMessage();
   		eObj = (ValidateMessage)obj;
   	
-  		if(eObj.validateMessage.compareTo("quit")==0){            //ÍË³ö
+  		if(eObj.validateMessage.compareTo("quit")==0){            //é€€å‡º
   				
   			for(int i=0; i<Server.userOnLine.size();i++){
   			
@@ -239,12 +239,12 @@ public class Connection extends Thread{
   				if(client.equals(eObj.validateName)){
   					
   					Server.userOnLine.removeElementAt(i);
-  					System.out.println("ÓÃ»§"+ eObj.validateName +"ÍË³öÁÄÌìÊÒ! \n");
+  					System.out.println("ç”¨æˆ·"+ eObj.validateName +"é€€å‡ºèŠå¤©å®¤! \n");
 	  				break;
   				}
   			}	
   		}
-  		else{                                                     //×¢Ïú
+  		else{                                                     //æ³¨é”€
   			
   			for(int i=0; i<Server.userOnLine.size();i++){
   			
@@ -252,11 +252,11 @@ public class Connection extends Thread{
   			
   				if(client.equals(eObj.validateName)){
   					Server.userOnLine.removeElementAt(i);
-  					System.out.println("ÓÃ»§"+ eObj.validateName +"ÍË³öÁÄÌìÊÒ! \n");
+  					System.out.println("ç”¨æˆ·"+ eObj.validateName +"é€€å‡ºèŠå¤©å®¤! \n");
   				}
   			}
   			try{
-  				//´Ó×¢²áÎÄ¼şÖĞÉ¾³ıÓÃ»§	
+  				//ä»æ³¨å†Œæ–‡ä»¶ä¸­åˆ é™¤ç”¨æˆ·	
   				Vector temp = new Vector(0,1);
   				fileInStream = new FileInputStream("user.txt"); 
   				objInStream = new ObjectInputStream(fileInStream);     
@@ -285,7 +285,7 @@ public class Connection extends Thread{
   		}
   	}
   	
-  	//***********************************±£´æÁôÑÔ****************************************
+  	//***********************************ä¿å­˜ç•™è¨€****************************************
 	public void userAdvice(){
 	
 		ClientAdvice eObj = new ClientAdvice();
@@ -309,18 +309,18 @@ public class Connection extends Thread{
   		Server.userAdvice.addElement(eObj);  	
 	}
 	
-	//***************************·¢ËÍÃæ°åĞÅÏ¢¡¢ÁôÑÔºÍÎÄ¼ş********************************	
+	//***************************å‘é€é¢æ¿ä¿¡æ¯ã€ç•™è¨€å’Œæ–‡ä»¶********************************	
 	public  void sendMessage(){
 		
 		ClientName cName =new ClientName();
 		cName=(ClientName)obj;
 		
-		if(fileObj!=null&&cName.clientName.equals(fileObj.to)){	       //ÎÄ¼ş
+		if(fileObj!=null&&cName.clientName.equals(fileObj.to)){	       //æ–‡ä»¶
 			
 			send((FileObject)fileObj);
 			fileObj = null;
 		}
-		else{                                                      //ÁÄÌìÏûÏ¢ÓëÁôÑÔ
+		else{                                                      //èŠå¤©æ¶ˆæ¯ä¸ç•™è¨€
 			Vector temp =new Vector(0,1);
 			
 			int i=0;
@@ -345,7 +345,7 @@ public class Connection extends Thread{
 		}
 	}
 	
-	//***********************************±£´æÎÄ¼ş****************************************
+	//***********************************ä¿å­˜æ–‡ä»¶****************************************
 	public void saveFile(){
 
 		fileObj = (FileObject)obj;
@@ -353,12 +353,12 @@ public class Connection extends Thread{
 			
 	}
 	
-	//***********************************¸üĞÂÓÃ»§×ÊÁÏ*************************************
+	//***********************************æ›´æ–°ç”¨æˆ·èµ„æ–™*************************************
 	public void updateDetail(){
 		
 		try{
   		
-  			Vector temp;             //¶¨ÒåÒ»¸öÁÙÊ±ÏòÁ¿
+  			Vector temp;             //å®šä¹‰ä¸€ä¸ªä¸´æ—¶å‘é‡
   			fileInStream = new FileInputStream("user.txt"); 
   			objInStream = new ObjectInputStream(fileInStream);     
   			temp = (Vector)objInStream.readObject();
@@ -382,7 +382,7 @@ public class Connection extends Thread{
   					fileOutStream = new FileOutputStream("user.txt");                        
 	  				objOutStream = new ObjectOutputStream(fileOutStream);
 	  				
-	  				objOutStream.writeObject((Vector)temp);  //ÖØĞÂ±£´æ		
+	  				objOutStream.writeObject((Vector)temp);  //é‡æ–°ä¿å­˜		
 	  				
 	  				fileOutStream.close();
 	  				objOutStream.close();
@@ -401,9 +401,9 @@ public class Connection extends Thread{
   		}
   		catch(Exception e){}
 	}
-//	£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª£ª
+//	ï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Šï¼Š
 	
-	//*****************************¶¨ÒåĞÅÏ¢·¢ËÍsend()·½·¨********************************
+	//*****************************å®šä¹‰ä¿¡æ¯å‘é€send()æ–¹æ³•********************************
   	public  void send(Object object){
 		
 		try{
@@ -415,7 +415,7 @@ public class Connection extends Thread{
 		}
 	}
 	
-	//***********************************ºË¶ÔÓÃ»§Ãû**************************************	
+	//***********************************æ ¸å¯¹ç”¨æˆ·å**************************************	
 	public boolean checkName(Vector vector,String name){
 	
   		boolean flag=false;
@@ -432,7 +432,7 @@ public class Connection extends Thread{
   		return flag;
 	}
 	
-	//*********************************ÏìÓ¦ÓÃ»§ĞèÈ·ÈÏĞÅÏ¢********************************
+	//*********************************å“åº”ç”¨æˆ·éœ€ç¡®è®¤ä¿¡æ¯********************************
 	public void answer(String answer,String name){
 		
 		ValidateMessage msg = new ValidateMessage();

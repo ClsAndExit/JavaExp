@@ -1,5 +1,5 @@
-package webChat;
-import webChat.*;
+package myclass;
+import myclass.*;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.*;
  
-//*************************¿Í»§¶ËÏß³ÌÀàÓÃÀ´¼àÌı·şÎñÆ÷´«À´µÄĞÅÏ¢**************************
+//*************************å®¢æˆ·ç«¯çº¿ç¨‹ç±»ç”¨æ¥ç›‘å¬æœåŠ¡å™¨ä¼ æ¥çš„ä¿¡æ¯**************************
 public class Listen extends Thread{
 	                         
 	ObjectInputStream fromServer;                     
@@ -18,14 +18,14 @@ public class Listen extends Thread{
 	String name;  
 	Object obj;
 	int count;
-	//*****************************Ïß³Ì¹¹Ôìº¯Êı******************************************
+	//*****************************çº¿ç¨‹æ„é€ å‡½æ•°******************************************
 	public Listen(String userName,clientChat chatFrame){
 		name = userName;
 	 	frame = chatFrame;
 		this.start();
     }   
     
-    //*******************************Ïß³ÌÔËĞĞ·½·¨***************************************
+    //*******************************çº¿ç¨‹è¿è¡Œæ–¹æ³•***************************************
 	public void run(){                               
 	    
 	    while(true){	
@@ -39,24 +39,24 @@ public class Listen extends Thread{
 	    		client.clientName = name;
 	    		toServer.writeObject((ClientName)client);
 	    	
-	    		obj=fromServer.readObject();         //¶ÁÈ¡´Ó·şÎñÆ÷´«À´µÄĞÅÏ¢
+	    		obj=fromServer.readObject();         //è¯»å–ä»æœåŠ¡å™¨ä¼ æ¥çš„ä¿¡æ¯
 	    	     
-			 	if(obj==null){        //Èç¹û´Ó·şÎñÆ÷´«À´µÄĞÅÏ¢Îª¿ÕÔò¶Ï¿ª´Ë´ÎÁ¬½Ó              
+			 	if(obj==null){        //å¦‚æœä»æœåŠ¡å™¨ä¼ æ¥çš„ä¿¡æ¯ä¸ºç©ºåˆ™æ–­å¼€æ­¤æ¬¡è¿æ¥              
 			    	frame.textMain.setText("");
 		    		socket.close();
 			        return;
 			    }
-				if(obj.getClass().getName().compareTo("myclass.ServerMessage") == 0)    //ÅĞ¶¨ÊÇ·ñÎªÁÄÌìĞÅÏ¢	
+				if(obj.getClass().getName().compareTo("myclass.ServerMessage") == 0)    //åˆ¤å®šæ˜¯å¦ä¸ºèŠå¤©ä¿¡æ¯	
 					acceptMessage();
 				
-				if(obj.getClass().getName().compareTo("myclass.FileObject") == 0)      //ÅĞ¶¨ÊÇ·ñÎªÎÄ¼ş	
+				if(obj.getClass().getName().compareTo("myclass.FileObject") == 0)      //åˆ¤å®šæ˜¯å¦ä¸ºæ–‡ä»¶	
 					acceptFile();
 	
 				toServer.close();
 				fromServer.close();
 				socket.close();
 				GregorianCalendar  calendar = new GregorianCalendar();
-       			String time ="µ±Ç°µÄÊ±¼ä  [ "+calendar.get(calendar.HOUR)+":"+calendar.get(calendar.MINUTE)+":"+
+       			String time ="å½“å‰çš„æ—¶é—´  [ "+calendar.get(calendar.HOUR)+":"+calendar.get(calendar.MINUTE)+":"+
                                  calendar.get(calendar.SECOND)+" ]";
 				frame.status.setText(time);
 				this.sleep(1000);
@@ -71,21 +71,21 @@ public class Listen extends Thread{
 		}  
 	} 
 	
-	//******************************ÒÔÏÂÊµÏÖ¸÷ÖÖ·½·¨*************************************
-	//»ñÈ¡Ãæ°åÏûÏ¢
+	//******************************ä»¥ä¸‹å®ç°å„ç§æ–¹æ³•*************************************
+	//è·å–é¢æ¿æ¶ˆæ¯
 	public void acceptMessage(){
 		
-		//Ë¢ĞÂÓÃ»§ÁĞ±í
+		//åˆ·æ–°ç”¨æˆ·åˆ—è¡¨
 		ServerMessage msgObj = (ServerMessage)obj;	
 		frame.listUser.removeAll();
-		frame.listUser.add("***********µ±Ç°ÓÃ»§ÁĞ±í************");
+		frame.listUser.add("***********å½“å‰ç”¨æˆ·åˆ—è¡¨************");
 		
 		for(int i=0; i<msgObj.userOnLine.size();i++){	
 			String user = (String)msgObj.userOnLine.elementAt(i);
 			frame.listUser.add(user);	
 		}
 		
-		//½ÓÊÕÁôÑÔ
+		//æ¥æ”¶ç•™è¨€
 		String uAdvice="";
 		for(int i=0;i<msgObj.userAdvice.size();i++){
 			ClientAdvice ca =(ClientAdvice)msgObj.userAdvice.elementAt(i);
@@ -94,55 +94,55 @@ public class Listen extends Thread{
 		if(uAdvice.length()!=0){
 			frame.sendAdvice.setBackground(Color.cyan);
 			frame.flag=false;
-			frame.sendAdvice.setText("²é ¿´ Áô ÑÔ");
+			frame.sendAdvice.setText("æŸ¥ çœ‹ ç•™ è¨€");
 			frame.saveAdvice=uAdvice;
 		}
 		
-		//»ñÈ¡ÁÄÌìĞÅÏ¢
+		//è·å–èŠå¤©ä¿¡æ¯
 		if(count == 0){
 			count = msgObj.messageGained.size();
 		}
 		while(count < msgObj.messageGained.size()){
 			
 			ChatMessage chatMsg = (ChatMessage)msgObj.messageGained.elementAt(count);
-			addChatMessage(chatMsg);    //Ìí¼ÓÁÄÌìÄÚÈİ
+			addChatMessage(chatMsg);    //æ·»åŠ èŠå¤©å†…å®¹
 			count++;
 		}	
 	}
 	
-	//******************************Ìí¼ÓÁÄÌìÄÚÈİ*****************************************
+	//******************************æ·»åŠ èŠå¤©å†…å®¹*****************************************
 	public void addChatMessage(ChatMessage chat){
 		String msg = new String();
 	
 		if(chat.whisper){
 			if(chat.chatUser.equals(name)){
-				msg = chat.chattime+"¡ïÇÄÇÄ»°¡ï  "+"ÎÒ¶Ô"+chat.chatToUser+chat.chatFace+"Ëµ£º  "+chat.chatMessage+"\n\n";
+				msg = chat.chattime+"â˜…æ‚„æ‚„è¯â˜…  "+"æˆ‘å¯¹"+chat.chatToUser+chat.chatFace+"è¯´ï¼š  "+chat.chatMessage+"\n\n";
 			}
 			else if(chat.chatToUser.equals(name)){	
-				msg = chat.chattime+"¡ïÇÄÇÄ»°¡ï  "+chat.chatUser+chat.chatFace+"¶ÔÎÒËµ£º  "+chat.chatMessage+"\n\n";
+				msg = chat.chattime+"â˜…æ‚„æ‚„è¯â˜…  "+chat.chatUser+chat.chatFace+"å¯¹æˆ‘è¯´ï¼š  "+chat.chatMessage+"\n\n";
 			}
 		}
 		else{
 			if(chat.chatUser.equals(name)){	
-				msg = chat.chattime+"ÎÒ¶Ô"+chat.chatToUser+chat.chatFace+"Ëµ£º  "+chat.chatMessage+"\n\n";
+				msg = chat.chattime+"æˆ‘å¯¹"+chat.chatToUser+chat.chatFace+"è¯´ï¼š  "+chat.chatMessage+"\n\n";
 			}
 			else if(chat.chatToUser.equals(name)){	
-				msg = chat.chattime+chat.chatUser+chat.chatFace+"¶ÔÎÒËµ£º"+chat.chatMessage+"\n\n";
+				msg = chat.chattime+chat.chatUser+chat.chatFace+"å¯¹æˆ‘è¯´ï¼š"+chat.chatMessage+"\n\n";
 			}
 			else{
-				msg =chat.chattime+ chat.chatUser +chat.chatFace+"¶Ô"+chat.chatToUser+"Ëµ£º"+chat.chatMessage+"\n\n";
+				msg =chat.chattime+ chat.chatUser +chat.chatFace+"å¯¹"+chat.chatToUser+"è¯´ï¼š"+chat.chatMessage+"\n\n";
 			}
 		}
 		frame.textMain.append(msg);
 	}
 	
-	//*********************************½ÓÊÕÎÄ¼ş*******************************************
+	//*********************************æ¥æ”¶æ–‡ä»¶*******************************************
 	public void acceptFile(){
 		
 		try{
 			FileObject fileFromSer = (FileObject)obj;
 			String str;
-			str = "ÊÇ·ñ±£´æ"+fileFromSer.from+"·¢¹ıÀ´µÄÎÄ¼ş?";	
+			str = "æ˜¯å¦ä¿å­˜"+fileFromSer.from+"å‘è¿‡æ¥çš„æ–‡ä»¶?";	
 			int chooserPane=JOptionPane.showConfirmDialog(frame,str);
 	
 			if(chooserPane == JOptionPane.OK_OPTION)
@@ -150,7 +150,7 @@ public class Listen extends Thread{
 				JFileChooser choo = new JFileChooser();
 				choo.showSaveDialog(frame);
 				File saveFile = choo.getSelectedFile();
-				//ÊäÈëÎÄ¼şµ½´ÅÅÌ			
+				//è¾“å…¥æ–‡ä»¶åˆ°ç£ç›˜			
 				FileOutputStream fo=new FileOutputStream(saveFile+((FileObject)fileFromSer).format);
 				fo.write(((FileObject)fileFromSer).fileContent);
 				fo.close();
