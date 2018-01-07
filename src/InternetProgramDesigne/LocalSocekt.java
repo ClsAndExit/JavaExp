@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;  
 public class LocalSocekt {
 	public static final String IP_ADDR = "localhost";//服务器地址   
-    public static final int PORT = 8080;//服务器端口号    
+    public static final int PORT = 1001;//服务器端口号    
       
     public static void main(String[] args) {    
         System.out.println("客户端启动...");    

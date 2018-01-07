@@ -6,7 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ServerSockket {
-	public static final int PORT = 8080;// 监听的端口号
+	public static final int PORT = 1001;// 监听的端口号
 	CRUDController con = new CRUDController();
 	public static void main(String[] args) {
 		System.out.println("服务器启动...\n");
