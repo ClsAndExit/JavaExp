@@ -39,7 +39,7 @@ public class Server extends Thread {
 	public void run(){                                   
 	    
 		try{
-			while(true){   
+			while(true){    
 			
 				Socket client = serverSocket.accept(); 	
 				Connection connect=new Connection(client);
