@@ -19,7 +19,6 @@ public class clientLogin extends JFrame implements ActionListener {
 	JButton buttonCancel;
 	JButton buttonRegister;
 	JLabel label;
-
 	JLabel imagePos;
 
 	// ************************************设置登陆窗口方法***********************************
